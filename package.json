@@ -9,7 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@prisma/client": "^5.17.0",
     "@solana/web3.js": "^1.95.2",
+    "jsonwebtoken": "^9.0.2",
     "next": "14.2.5",
     "prisma": "^5.17.0",
     "react": "^18",
