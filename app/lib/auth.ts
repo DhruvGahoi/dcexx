@@ -3,16 +3,14 @@ import db from '@/app/db'
 import { Keypair } from "@solana/web3.js";
 
 import { Session } from 'next-auth';
-import { signIn } from "next-auth/react";
 
 export interface session extends Session{
-    user: {
-        id: string;
-        email: string;
-        name: string;
-        image: string;
-        uid: string;
-    }
+  user: {
+      email: string;
+      name: string;
+      image: string;
+      uid: string;
+  }
 }
 
 export const authConfig = {
@@ -26,6 +24,7 @@ export const authConfig = {
         session: ({session, token }: any): session => {
             const newSession: session = session as session;
             if(newSession.user && token.uid){
+                // @ts-ignore
                 newSession.user.uid = token.uid ?? ""
             }
             return newSession!;
@@ -84,7 +83,6 @@ export const authConfig = {
                   }
                 }
               })
-              return true
             }
             return false;
           }
