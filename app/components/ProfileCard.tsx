@@ -44,7 +44,10 @@ function Assets({ publicKey } : {publicKey : string}) {
         <div className="flex justify-between">
             <div></div>
             <div>
-                <PrimaryButton onClick={() =>{setCopied(true)}} >{copied ? "Copied" : "Your wallet address"}</PrimaryButton>
+                <PrimaryButton onClick={() =>{
+                    navigator.clipboard.writeText(publicKey)
+                    setCopied(true)
+                    }}>{copied ? "Copied" : "Your wallet address"}</PrimaryButton>
             </div>
         </div>
     </div>
